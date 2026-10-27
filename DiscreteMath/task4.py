@@ -67,20 +67,22 @@ commands2 = [Command.parse_string('q1 0 q1 0 S'), #зацикливание
              Command.parse_string('q6 1 q6 1 L'), #'1111'=3 при x=1
 
              Command.parse_string('q3 1 q7 1 R'),
-             Command.parse_string('q7 0 q9 0 L'), #'11'=1 при x in {2, 3}
-
+             Command.parse_string('q7 0 q9 1 L'), 
              Command.parse_string('q7 1 q8 1 R'),
-             Command.parse_string('q8 1 q8 1 R'),
-             Command.parse_string('q8 0 q9 1 L'), #'1'=0 при x>3
+             Command.parse_string('q8 1 q12 1 R'),
+             Command.parse_string('q8 0 q9 1 L'), #'11'=1 при x in {2, 3}
              
-             Command.parse_string('q9 1 q9 0 L'),
-             Command.parse_string('q9 0 q10 0 R'),
+             
+             Command.parse_string('q12 1 q12 1 R'),
+             Command.parse_string('q12 0 q9 0 L'), #'1'=0 при x>3
+
+             Command.parse_string('q9 1 q10 1 L'),
              Command.parse_string('q10 0 q11 0 R'),
              Command.parse_string('q10 1 q10 0 L'),
              Command.parse_string('q11 0 q11 0 R'),
              Command.parse_string('q11 1 q0 1 S') #оставляем одну единицу, все слева стираем
              ]
-P2 = '1' * 2
+P2 = '1' * 50
 TuringMachine(P2, commands2)
 
 commands3 = [Command.parse_string('q1 1 q2 0 R'), 
